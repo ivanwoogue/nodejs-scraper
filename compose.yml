@@ -1,0 +1,12 @@
+services:
+  playwright-root:
+    container_name: playwright-root
+    build: .
+    user: root
+    ipc: host
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/app
+      - ./playwright.config.ts:/app/playwright.config.ts
+    command: /bin/bash

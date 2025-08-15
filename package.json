@@ -2,12 +2,14 @@
   "name": "nodejs-scraper",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "ts-node src/index.ts",
-    "lint": "eslint . --ext .ts"
+    "dev": "tsx src/index.ts",
+    "lint": "eslint . --ext .ts",
+    "test": "playwright test",
+    "playwright-root": "docker compose run --rm playwright-root"
   },
   "keywords": [],
   "author": "Ivan Ric Woogue",
@@ -16,11 +18,21 @@
   "devDependencies": {
     "@eslint/js": "^9.33.0",
     "@eslint/markdown": "^7.1.0",
+    "@playwright/test": "^1.54.2",
     "@types/node": "^24.2.1",
     "eslint": "^9.33.0",
     "globals": "^16.3.0",
+    "prettier": "3.6.2",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.4",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.39.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "p-limit": "^6.2.0",
+    "p-retry": "^6.2.1",
+    "playwright": "^1.54.2",
+    "zod": "^4.0.17"
   }
 }
